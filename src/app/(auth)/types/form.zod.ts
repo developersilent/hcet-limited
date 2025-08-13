@@ -1,14 +1,11 @@
 import { z } from "zod";
 
 export const FormData = z.object({
-  username: z
-    .string()
-    .min(1, { message: "Username is required" })
-    .min(3, { message: "Username is too short" })
-    .regex(/^(?=.*[_.])[a-z0-9._]+$/, {
-      message: "Use small letters, numbers, _ or . (must have _ or .)",
+  email: z
+    .email({
+      message: "Invalid email address",
     })
-    .max(100, { message: "Username is too long" }),
+    .max(100, { message: "Email is too long" }),
   password: z
     .string()
     .min(1, { message: "Password is required" })

@@ -22,17 +22,17 @@ export const authRoutes = createNewRoute({
         message: "Invalid input provided.",
       });
     }
-    const { password, username } = zodValidate.data;
+    const { password, email } = zodValidate.data;
 
     // db query for existing user
     const [isUserExist] = await db
       .select()
       .from(userTable)
-      .where(eq(userTable.username, username))
+      .where(eq(userTable.email, email))
       .limit(1);
     if (isUserExist) {
       throw new HTTPException(401, {
-        message: "Username is already taken",
+        message: "Email is already taken",
       });
     }
 
@@ -54,11 +54,11 @@ export const authRoutes = createNewRoute({
       .insert(userTable)
       .values({
         password: HashedPassword,
-        username,
+        email: email,
       })
       .returning({
         id: userTable.id,
-        username: userTable.username,
+        email: userTable.email,
       });
     if (!newUser) {
       throw new HTTPException(500, {
@@ -88,17 +88,17 @@ export const authRoutes = createNewRoute({
         message: "Invalid input provided.",
       });
     }
-    const { password, username } = zodValidate.data;
+    const { password, email } = zodValidate.data;
 
     // get user from db
     const [isUserExist] = await db
       .select()
       .from(userTable)
-      .where(eq(userTable.username, username))
+      .where(eq(userTable.email, email))
       .limit(1);
     if (!isUserExist) {
       throw new HTTPException(401, {
-        message: "Invalid Username or Password",
+        message: "Invalid Email or Password",
       });
     }
 
@@ -106,7 +106,7 @@ export const authRoutes = createNewRoute({
     const validPassword = await verify(isUserExist.password, password);
     if (!validPassword) {
       throw new HTTPException(401, {
-        message: "Invalid Username or Password",
+        message: "Invalid Email or Password",
       });
     }
 

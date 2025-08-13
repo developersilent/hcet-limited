@@ -18,7 +18,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // Redirect to signin if the user is not authenticated
-  if (!session?.user && !session?.session) {
+  if (!session?.user || !session?.session) {
     return NextResponse.redirect(new URL("/signin", req.url));
   }
 

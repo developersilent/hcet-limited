@@ -1,11 +1,5 @@
 "use client";
-import {
-  AlertCircle,
-  ChartNoAxesGantt,
-  Eye,
-  EyeOff,
-  Loader2,
-} from "lucide-react";
+import { AlertCircle, Eye, EyeOff, Loader2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -34,7 +28,7 @@ export function SignUpForm({
   const rhf = useForm<FormDataType>({
     resolver: zodResolver(FormData),
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
     },
   });
@@ -55,11 +49,11 @@ export function SignUpForm({
       <div className="flex flex-col gap-6">
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center gap-2 font-medium">
-            <div className="flex h-8 w-8 items-center justify-center rounded-md">
-              <ChartNoAxesGantt className="size-14" />
+            <div className="flex h-8 w-8 items-center justify-center font-clash-display rounded-md font-bold">
+              HCETLIMITED
             </div>
           </div>
-          <h1 className="text-xl font-bold text-foreground/80">
+          <h1 className="text-xl font-bold text-foreground/80 font-clash-display">
             Sign up to continue.
           </h1>
         </div>
@@ -72,20 +66,20 @@ export function SignUpForm({
               {/* Username Input */}
               <FormField
                 control={rhf.control}
-                name="username"
+                name="email"
                 render={({ field, formState }) => (
                   <FormItem>
                     <FormControl>
                       <div className="relative">
                         <Input
-                          id="username"
-                          type="text"
+                          id="email"
+                          type="email"
                           autoComplete="off"
-                          placeholder="Username"
-                          className={`max-sm:h-10 px-3 text-xs placeholder:text-xs transition-all duration-300 ${formState.errors.username ? "pr-9.5 pl-3 focus-visible:ring-ring/75" : null}`}
+                          placeholder="Email"
+                          className={`max-sm:h-10 px-3 text-xs placeholder:text-xs transition-all duration-300 ${formState.errors.email ? "pr-9.5 pl-3 focus-visible:ring-ring/75" : null}`}
                           {...field}
                         />
-                        {formState.errors.username && (
+                        {formState.errors.email && (
                           <div className="absolute right-0.5 top-1/2 transform -translate-y-1/2 grid h-full w-[10%] place-content-center rounded-full px-0.5">
                             <AlertCircle size={15} className="text-rose-600" />
                           </div>

@@ -5,8 +5,7 @@ export const userTable = pgTable("user", {
     .primaryKey()
     .$defaultFn(() => crypto.randomUUID())
     .notNull(),
-  username: text("username").unique().notNull(),
-  email: text("email").array(2).unique(),
+  email: text("email").notNull(),
   password: text("password").notNull(),
   created_at: timestamp("created_at", {
     withTimezone: true,
