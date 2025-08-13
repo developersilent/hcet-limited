@@ -10,6 +10,7 @@ export async function middleware(req: NextRequest) {
     "/signup",
     "/api/Auth/signin",
     "/api/Auth/signup",
+    "/",
   ];
 
   // Allow public routes without authentication

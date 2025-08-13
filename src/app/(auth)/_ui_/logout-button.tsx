@@ -25,7 +25,7 @@ export function LogOut() {
         handleLogOut();
       }}
     >
-      <Button variant={"appButton"} className="text-xs w-full" type="submit">
+      <Button variant={"default"} className="text-xs w-full" type="submit">
         {isPending ? (
           <Loader2 size={30} className="animate-spin duration-[370ms]" />
         ) : (

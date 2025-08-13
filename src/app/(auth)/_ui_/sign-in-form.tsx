@@ -138,7 +138,7 @@ export function SignInForm({
             {/* Submit Button */}
             <div className="my-4">
               <Button
-                variant={"appButton"}
+                variant={"default"}
                 className="text-xs w-full"
                 type="submit"
               >
