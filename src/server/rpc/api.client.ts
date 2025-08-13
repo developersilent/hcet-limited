@@ -1,3 +1,4 @@
+import { env } from "@/env.mjs";
 import type { AppRouter } from "@/server/rpc/root";
 import { createClient } from "jstack";
 
@@ -6,5 +7,5 @@ import { createClient } from "jstack";
  * @see https://jstack.app/docs/backend/api-client
  */
 export const client = createClient<AppRouter>({
-  baseUrl: "http://localhost:3000/api",
+  baseUrl: env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api"
 });
