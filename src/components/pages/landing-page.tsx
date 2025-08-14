@@ -7,7 +7,7 @@ export function LandingPage() {
   return (
     <div className="min-h-screen bg-black text-white p-3 grid">
       {/* Main Content */}
-      <main className="flex flex-col items-center gap-2">
+      <main className="flex flex-col items-center gap-2 z-0">
         {/* Hero Section */}
         <div className="w-full">
           <div className="flex gap-2 h-fit">
@@ -31,7 +31,7 @@ export function LandingPage() {
             </div>
 
             <div className="w-[60%] h-full">
-              <Card className="bg-[#1f1f1f] relative overflow-hidden border-0 p-6 rounded-2xl w-full">
+              <Card className="bg-[#101010] relative overflow-hidden border-0 p-6 rounded-2xl w-full">
                 <h3 className="text-[22px] font-custom font-semibold leading-tight mb-4 font-clash-display z-99">
                   Experience power, speed,
                   <br />
@@ -53,7 +53,7 @@ export function LandingPage() {
                       height={500}
                     />
                     {/* Lighter gradient mask overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#1f1f1f] via-[#1f1f1f]/40 via-20% to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#101010] via-[#101010]/40 via-20% to-transparent"></div>
                   </div>
                 </div>
               </Card>
@@ -64,7 +64,7 @@ export function LandingPage() {
         {/* Feature Cards */}
         <div className="flex gap-2 w-full h-full">
           {/* Raw Power Card - 30% */}
-          <Card className="w-[20%] border-0 p-4 rounded-2xl flex flex-col items-center justify-center -gap-7">
+          <Card className="w-[20%] bg-[#101010] border-0 p-4 rounded-2xl flex flex-col items-center justify-center -gap-7">
             <h3 className="text-xl font-semibold text-white font-clash-display text-center">
               Raw Power
             </h3>
@@ -84,7 +84,7 @@ export function LandingPage() {
           </Card>
 
           {/* Design Meets Performance Card - 40% */}
-          <Card className="w-[60%] bg-[#1f1f1f] border-0 p-6 rounded-2xl flex flex-col relative overflow-hidden">
+          <Card className="w-[60%] bg-[#101010] border-0 p-6 rounded-2xl flex flex-col relative overflow-hidden">
             <h3 className="text-xl font-semibold text-white font-clash-display relative z-10">
               Design Meets Performance
             </h3>
@@ -109,9 +109,9 @@ export function LandingPage() {
                   className="absolute inset-0"
                   style={{
                     background: `
-                    radial-gradient(ellipse 80% 60% at 60% 50%, transparent 40%, #1f1f1f 100%),
-                    linear-gradient(to right, #1f1f1f 0%, transparent 25%, transparent 75%, #1f1f1f 100%),
-                    linear-gradient(to bottom, #1f1f1f 0%, transparent 20%, transparent 80%, #1f1f1f 100%)
+                    radial-gradient(ellipse 80% 60% at 60% 50%, transparent 40%, #101010 100%),
+                    linear-gradient(to right, #101010 0%, transparent 25%, transparent 75%, #101010 100%),
+                    linear-gradient(to bottom, #101010 0%, transparent 20%, transparent 80%, #101010 100%)
                   `,
                   }}
                 ></div>
