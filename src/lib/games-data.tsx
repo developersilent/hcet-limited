@@ -5,7 +5,7 @@ export const GamesData: SlideData[] = [
     title: "Grand Theft Auto VI",
     description:
       "The next chapter in Rockstar's blockbuster open-world series, set in the vibrant, crime-filled streets of Vice City, offering a massive, dynamic world with dual protagonists, deep storytelling, and unprecedented levels of detail and interactivity.",
-    bgImg: "/gta6.webm", // Put your video file in public folder
+    bgImg: "https://uunxjeernqlrui5u.public.blob.vercel-storage.com/gta6.webm", // Put your video file in public folder
     price: 99.99,
     currentPrice: 79.99,
     rating: 4.9,
@@ -34,7 +34,7 @@ export const GamesData: SlideData[] = [
     price: 69.99,
     currentPrice: 49.99,
     rating: 4.5,
-    bgImg: "/codw.webm",
+    bgImg: "https://uunxjeernqlrui5u.public.blob.vercel-storage.com/codw.webm",
     src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2Ff94W77ceivudNJpZbziJYg.jpg&f=1&nofb=1&ipt=c394769f37d0ad536a00d812f716eb4e8de06002825208e1c14a885ae7684f8f",
     releaseYear: "2020",
     developer: "Infinity Ward",
@@ -47,7 +47,8 @@ export const GamesData: SlideData[] = [
     price: 49.99,
     rating: 4.8,
     currentPrice: 39.99,
-    bgImg: "/minecraft.webm",
+    bgImg:
+      "https://uunxjeernqlrui5u.public.blob.vercel-storage.com/minecraft.webm",
     src: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.opencritic.com%2Fgame%2F194%2Fo%2F1kabVU4E.jpg&f=1&nofb=1&ipt=3273fecf9ce6fdc216b46d5e02042c8785b8333cad34985d9f6d5416521156a0",
     releaseYear: "2011",
     developer: "Mojang Studios",
