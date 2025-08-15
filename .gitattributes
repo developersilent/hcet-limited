@@ -1,4 +1,0 @@
-public/*.webm filter=lfs diff=lfs merge=lfs -text
-public/minecraft.webm filter=lfs diff=lfs merge=lfs -text
-public/codw.webm filter=lfs diff=lfs merge=lfs -text
-/publicgta6.webm filter=lfs diff=lfs merge=lfs -text
