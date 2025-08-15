@@ -19,7 +19,7 @@ export function YourGames() {
           muted
           playsInline
           preload="metadata"
-          poster={current?.src?.replace(".mp4", ".jpg")}
+          poster={current?.src?.replace(/\.(mp4|webm)$/, ".jpg")}
           onLoadedData={(e) => {
             const video = e.currentTarget;
             video.currentTime = 7;
@@ -32,7 +32,11 @@ export function YourGames() {
             backfaceVisibility: "hidden",
           }}
         >
-          <source src={current?.src} type="video/mp4" />
+          {current?.src?.endsWith(".webm") ? (
+            <source src={current.src} type="video/webm" />
+          ) : (
+            <source src={current?.src} type="video/mp4" />
+          )}
           Your browser does not support the video tag.
         </video>
 
@@ -57,9 +61,9 @@ export function YourGames() {
             </h1>
 
             {/* Game description */}
-            <p className="text-xl text-gray-300 leading-relaxed max-w-xl font-light">
-              {current?.description}
-            </p>
+            {/* <p className="text-xl text-gray-300 leading-relaxed max-w-xl font-light">
+                {current?.description}
+              </p> */}
 
             {/* Action buttons */}
             <div className="flex items-center space-x-4 pt-6">

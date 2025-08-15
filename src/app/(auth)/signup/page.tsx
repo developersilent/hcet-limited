@@ -48,7 +48,7 @@ const images = [
 export default async function Page() {
   const session = await auth();
   if (session && session?.session?.id) {
-    redirect("/");
+    redirect("/explore");
   }
   return (
     <main className="flex min-h-svh items-center justify-center gap-10 bg-[#000000]">

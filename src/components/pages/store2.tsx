@@ -19,7 +19,7 @@ export function Store2() {
           muted
           playsInline
           preload="metadata"
-          poster={current?.src?.replace(".mp4", ".jpg")}
+          poster={current?.src?.replace(/\.(mp4|webm)$/, ".jpg")}
           onLoadedData={(e) => {
             const video = e.currentTarget;
             video.currentTime = 7;
@@ -32,7 +32,11 @@ export function Store2() {
             backfaceVisibility: "hidden",
           }}
         >
-          <source src={current?.src} type="video/mp4" />
+          {current?.src?.endsWith(".webm") ? (
+            <source src={current.src} type="video/webm" />
+          ) : (
+            <source src={current?.src} type="video/mp4" />
+          )}
           Your browser does not support the video tag.
         </video>
 

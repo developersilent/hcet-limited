@@ -18,11 +18,12 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect to signin if the user is not authenticated
+  // Redirect to signin if the user is not authenticated for protected routes
   if (!session?.user || !session?.session) {
     return NextResponse.redirect(new URL("/signin", req.url));
   }
 
+  // Allow authenticated users to access protected routes
   return NextResponse.next();
 }
 export const config = {

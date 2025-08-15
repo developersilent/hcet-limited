@@ -5,7 +5,7 @@ import { useSignOutMutation } from "@/query-calls/auth-query-calls";
 import { Loader2, LogOutIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 
-export function LogOut() {
+export function LogOutButton() {
   const { isPending, mutateAsync } = useSignOutMutation();
   const handleLogOut = async () => {
     const res = await mutateAsync();
@@ -25,11 +25,14 @@ export function LogOut() {
         handleLogOut();
       }}
     >
-      <Button variant={"default"} className="text-xs w-full" type="submit">
+      <Button
+        className="text-xs w-full bg-transparent hover:bg-transparent h-3 flex items-center"
+        type="submit"
+      >
         {isPending ? (
           <Loader2 size={30} className="animate-spin duration-[370ms]" />
         ) : (
-          <div className="text-sm flex items-center gap-2 text-primary-foreground">
+          <div className="text-sm flex items-center gap-2">
             <LogOutIcon />
             <span>Logout</span>
           </div>

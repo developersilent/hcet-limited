@@ -4,6 +4,11 @@ import { Lucia, TimeSpan } from "lucia";
 import { cookies } from "next/headers";
 import { cache } from "react";
 
+export interface DatabaseUserAttributes {
+  id: string;
+  email: string;
+}
+
 export const LuciaInit = new Lucia(DbAdapter, {
   sessionCookie: {
     name: "session_auth",
@@ -11,8 +16,20 @@ export const LuciaInit = new Lucia(DbAdapter, {
       secure: env.NODE_ENV === "production",
     },
   },
+  getUserAttributes(attributes) {
+    return {
+      data: { ...attributes },
+    };
+  },
   sessionExpiresIn: new TimeSpan(2, "d"),
 });
+
+declare module "lucia" {
+  interface Register {
+    Lucia: typeof LuciaInit;
+    DatabaseUserAttributes: DatabaseUserAttributes;
+  }
+}
 
 const LuciaSession = cache(async () => {
   const cookie = await cookies();

@@ -38,7 +38,7 @@ export function SignInForm({
     const res = await mutateAsync(data);
     if (res.isSuccess) {
       SuccessToast(res.Message);
-      redirect("/");
+      redirect("/explore");
     } else {
       ErrorToast(res.Message);
     }
