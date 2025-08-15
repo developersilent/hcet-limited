@@ -40,9 +40,9 @@ const Section2 = () => {
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex justify-center flex-col pl-20">
             <h1 className="text-6xl font-bold font-clash-display">
-              THIS JULY
+              THIS JULY ON
               <br />
-              <span className="text-purple-300 px-2">ON HECTEC</span>
+              <span className="text-purple-300 px-2">HCET</span>
             </h1>
             <p className="text-lg text-gray-300">
               Check out this month's biggest releases along with dedicated

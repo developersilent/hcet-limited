@@ -2,22 +2,23 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { CardDataType } from "./section2";
 import Image from "next/image";
-import img from "@/../public/console.jpeg";
-
+import img1 from "@/../public/img2.jpeg";
+import img2 from "@/../public/img6.jpeg";
+import img3 from "@/../public/img5.jpeg";
 const cardData: CardDataType[] = [
   {
-    image: img.src as string,
-    title: "Console 1",
+    image: img1.src as string,
+    title: "Quasar Home",
     description: "Description for Console 1",
   },
   {
-    image: img.src as string,
-    title: "Console 2",
+    image: img2.src as string,
+    title: "Quasar",
     description: "Description for Console 2",
   },
   {
-    image: img.src as string,
-    title: "Console 3",
+    image: img3.src as string,
+    title: "Quasar Pro",
     description: "Description for Console 3",
   },
 ];
@@ -53,45 +54,49 @@ function Section3() {
       </div>
 
       {/* Console Showcase */}
-      <div className="relative flex items-center justify-center">
-        {/* Console Cards Row */}
-        <div className="flex items-center justify-center gap-12 relative z-10">
-          {cardData.map((console, index) => (
-            <div key={index} className="flex flex-col items-center group">
-              {/* Console Image Container with Glow */}
-              <div className="relative mb-6">
-                {/* Console Image */}
-                <div className="relative ">
+      <div className="py-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className="text-white rounded-2xl p-4 bg-[#101010]/60"
+            >
+              <div>
+                <div className="aspect-square rounded-xl mb-4 overflow-hidden">
                   <Image
-                    src={console.image}
-                    alt={console.title}
-                    width={160}
-                    height={200}
-                    className="object-cover rounded-lg filter brightness-110 contrast-110"
+                    width={300}
+                    height={300}
+                    src={card.image}
+                    alt={card.title}
+                    className={`w-full h-full object-cover ${
+                      card.title === "Quasar Home"
+                        ? "object-top"
+                        : "object-cover"
+                    }`}
                   />
                 </div>
-
-                {/* Additional glow effect */}
-                <div className="absolute -inset-2 bg-blue-500/20 rounded-xl blur-md opacity-60"></div>
+                <div className="text-white grid mt-2 gap-1">
+                  <span className="font-clash-display text-xl tracking-wide font-bold">
+                    {card.title}
+                  </span>
+                  {/* <div className="text-gray-300 text-base">
+                    {card.description}
+                  </div> */}
+                </div>
               </div>
-
-              {/* Console Name */}
-              <p className="text-lg font-medium text-gray-300 group-hover:text-white transition-colors duration-300">
-                {console.title}
-              </p>
             </div>
           ))}
         </div>
 
-        {/* Enhanced Central Diamond/Crystal Element */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-64 h-64 opacity-20">
-            <div className="w-full h-full bg-gradient-to-br from-purple-400/30 via-blue-400/20 to-transparent transform rotate-45 rounded-2xl backdrop-blur-md border border-white/20 shadow-2xl"></div>
-          </div>
-          <div className="absolute w-48 h-48 opacity-15">
-            <div className="w-full h-full bg-gradient-to-tl from-blue-400/30 via-purple-400/20 to-transparent transform -rotate-45 rounded-2xl backdrop-blur-md"></div>
-          </div>
-        </div>
+        {/* Call to Action */}
+        {/* <div className="text-center mt-12">
+               <Button
+                 variant="outline"
+                 className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900"
+               >
+                 Find out more
+               </Button>
+             </div> */}
       </div>
     </div>
   );

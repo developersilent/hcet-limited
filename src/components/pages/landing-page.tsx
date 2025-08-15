@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import img1 from "@/../public/graph.svg";
 import img2 from "@/../public/bg-1.svg";
+import console from "@/../public/img5.jpeg";
+import ctrll from "@/../public/img1.jpeg";
 import Image from "next/image";
 export function LandingPage() {
   return (
@@ -48,7 +50,7 @@ export function LandingPage() {
                     <Image
                       className="w-full h-full object-cover object-center"
                       alt="Gaming console"
-                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgaymingmag.com%2Fwp-content%2Fuploads%2F2022%2F06%2FE5A04FDF-08BC-4326-AC72-9538430759E5.jpeg&f=1&nofb=1&ipt=65dca44c12a07153ad31bb041c05acae26df35ca945d70e0a8ae067e94afe583"
+                      src={ctrll.src as string}
                       width={600}
                       height={500}
                     />
@@ -84,37 +86,25 @@ export function LandingPage() {
           </Card>
 
           {/* Design Meets Performance Card - 40% */}
-          <Card className="w-[60%] bg-[#101010] border-0 p-6 rounded-2xl flex flex-col relative overflow-hidden">
-            <h3 className="text-xl font-semibold text-white font-clash-display relative z-10">
+          <Card className="bg-[#101010] relative overflow-hidden border-0 p-6 rounded-2xl w-[60%]">
+            <h3 className="text-[22px] font-custom font-semibold leading-tight font-clash-display z-99">
               Design Meets Performance
             </h3>
-
-            <p className="text-gray-400 text-sm max-w-sm relative pr-3 -mt-5 z-10">
+            <p className="text-gray-400 text-sm max-w-md z-99 -mt-5">
               Crafted for your living room and your lifestyle, minimal, bold,
               and undeniably premium.
             </p>
-
-            {/* Image container with mask */}
-            <div className="relative flex-1">
-              <div className="absolute inset-0">
+            <div className="absolute right-0 top-0 w-[60%] h-full">
+              <div className="relative w-full h-full">
                 <Image
                   className="w-full h-full object-cover object-center"
-                  src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.hobbyconsolas.com%2Fsites%2Fnavi.axelspringer.es%2Fpublic%2Fmedia%2Fimage%2F2023%2F04%2Fasus-rog-ally-3014424.jpg%3Ftf%3D3840x&f=1&nofb=1&ipt=03e98460dfbec1de3c48b20b3fb3ac5b1dd739c05f4713f8a111c0ac1cfcfff3"
-                  alt="Gaming device design"
+                  alt="Gaming console"
+                  src={console.src as string}
                   width={600}
                   height={500}
                 />
-                {/* Seamless edge blending mask */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: `
-                    radial-gradient(ellipse 80% 60% at 60% 50%, transparent 40%, #101010 100%),
-                    linear-gradient(to right, #101010 0%, transparent 25%, transparent 75%, #101010 100%),
-                    linear-gradient(to bottom, #101010 0%, transparent 20%, transparent 80%, #101010 100%)
-                  `,
-                  }}
-                ></div>
+                {/* Lighter gradient mask overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#101010] via-[#101010]/40 via-20% to-transparent"></div>
               </div>
             </div>
           </Card>
