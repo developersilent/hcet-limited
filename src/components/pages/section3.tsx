@@ -1,24 +1,23 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { CardDataType } from "./section2";
 import Image from "next/image";
 import img1 from "@/../public/img2.jpeg";
-import img2 from "@/../public/img6.jpeg";
-import img3 from "@/../public/img5.jpeg";
+import img2 from "@/../public/console.jpeg";
+import img3 from "@/../public/prod3.jpeg";
 const cardData: CardDataType[] = [
   {
     image: img1.src as string,
-    title: "Quasar Home",
+    title: "Quasar",
     description: "Description for Console 1",
   },
   {
     image: img2.src as string,
-    title: "Quasar",
+    title: "Quasar Pro",
     description: "Description for Console 2",
   },
   {
     image: img3.src as string,
-    title: "Quasar Pro",
+    title: "Quasar Home",
     description: "Description for Console 3",
   },
 ];
@@ -34,7 +33,7 @@ function Section3() {
           consoles and accessories
         </h1>
 
-        <div className="flex justify-center gap-4 mb-4">
+        {/* <div className="flex justify-center gap-4 mb-4">
           <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full">
             Shop
           </Button>
@@ -44,7 +43,7 @@ function Section3() {
           >
             Learn More
           </Button>
-        </div>
+        </div> */}
 
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
           Experience an all-new generation of
@@ -59,7 +58,7 @@ function Section3() {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="text-white rounded-2xl p-4 bg-[#101010]/60"
+              className="text-white rounded-2xl p-4 bg-[#101010]/20"
             >
               <div>
                 <div className="aspect-square rounded-xl mb-4 overflow-hidden">
@@ -68,11 +67,11 @@ function Section3() {
                     height={300}
                     src={card.image}
                     alt={card.title}
-                    className={`w-full h-full object-cover ${
-                      card.title === "Quasar Home"
-                        ? "object-top"
-                        : "object-cover"
-                    }`}
+                    className={`w-full h-full object-cover`}
+                    style={{
+                      objectPosition:
+                        card.title === "Quasar" ? "center 70%" : "center",
+                    }}
                   />
                 </div>
                 <div className="text-white grid mt-2 gap-1">

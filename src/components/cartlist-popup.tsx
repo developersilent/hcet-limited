@@ -9,44 +9,47 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { cartInfo } from "@/state/cart";
 import { ShoppingCart } from "lucide-react";
+import { Badge } from "./ui/badge";
 
 export default function CartListPopup() {
+  const { current } = cartInfo();
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button className="relative z-10 bg-black/30 hover:bg-black/40">
           <ShoppingCart />
+          <Badge>{current.length}</Badge>
         </Button>
       </DialogTrigger>
-      <DialogContent className="flex flex-col gap-0 p-0 sm:max-h-[min(640px,80vh)] sm:max-w-lg [&>button:last-child]:top-3.5">
+      <DialogContent className="flex overflow-y-auto flex-col gap-0 p-0 sm:max-h-[min(640px,80vh)] sm:max-w-lg [&>button:last-child]:top-3.5">
         <DialogHeader className="contents space-y-0 text-left">
           <DialogTitle className="border-b px-6 py-4 text-base">
             Cart Items
           </DialogTitle>
-          <div className="overflow-y-auto">
-            <DialogDescription asChild>
-              <div className="px-6 py-4">
-                <div className="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
-                  <div className="space-y-1">
-                    <p>
-                      <strong>Account Management</strong>
-                    </p>
-                    <p>
-                      Navigate to the registration page, provide required
-                      information, and verify your email address. You can sign
-                      up using your email or through social media platforms.
-                    </p>
+          {current.length > 0 &&
+            current.map((item, index) => (
+              <div key={index}>
+                <DialogDescription asChild>
+                  <div className="px-6 py-4">
+                    <div className="[&_strong]:text-foreground space-y-4 [&_strong]:font-semibold">
+                      <div className="space-y-1">
+                        <p>
+                          <strong>{item.title}</strong>
+                        </p>
+                        <p>{item.description}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </DialogDescription>
               </div>
-            </DialogDescription>
-            <DialogFooter className="px-6 pb-6 sm:justify-start">
-              <DialogClose asChild>
-                <Button type="button">Okay</Button>
-              </DialogClose>
-            </DialogFooter>
-          </div>
+            ))}
+          <DialogFooter className="px-6 pb-6 sm:justify-start">
+            <DialogClose asChild>
+              <Button type="button">Buy Now</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogHeader>
       </DialogContent>
     </Dialog>
