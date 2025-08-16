@@ -5,6 +5,7 @@ import { HTTPResponseError } from "hono/types";
 import { HTTPException } from "hono/http-exception";
 import { ErrorResponse } from "../types/api.res.types";
 import { env } from "@/env.mjs";
+import { gamesRoutes } from "../routers/games";
 
 type ErrorType = Error | HTTPResponseError;
 
@@ -41,6 +42,7 @@ const app = j
 
 const appRouter = j.mergeRouters(app, {
   Auth: authRoutes,
+  Games: gamesRoutes,
 });
 
 export type AppRouter = typeof appRouter;

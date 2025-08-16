@@ -8,7 +8,7 @@ import { ErrorToast, SuccessToast } from "@/components/toast";
 import { Button } from "@/components/ui/button";
 import { useSession } from "@/lib/use-session";
 import { useSignOutMutation } from "@/query-calls/auth-query-calls";
-import { ShoppingCart } from "lucide-react";
+// import { ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -73,7 +73,14 @@ export default function Page() {
             }}
             handleLogOut={handleLogOut}
           />
-          <ShoppingCart className="w-5 h-5 text-purple-100" />
+          {/* <div className="relative">
+            <ShoppingCart className="w-5 h-5 text-purple-100" />
+            {items.length > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-semibold rounded-full px-1">
+                {items.length}
+              </span>
+            )}
+          </div> */}
         </div>
       </header>
       {activeTab === "games" && (

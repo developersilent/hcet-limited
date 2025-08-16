@@ -1,7 +1,7 @@
 import { GamesData } from "@/lib/games-data";
 import { create } from "zustand";
 
-interface StoreCurrentGame {
+export interface StoreCurrentGame {
   title: string;
   src: string;
   description?: string;
@@ -11,6 +11,7 @@ interface StoreCurrentGame {
   platforms?: string[];
   currentPrice?: number;
   rating?: number;
+  bgImg?: string;
 }
 
 interface GameActions {
