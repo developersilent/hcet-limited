@@ -8,17 +8,20 @@ const cardData: CardDataType[] = [
   {
     image: img1.src as string,
     title: "Quasar",
-    description: "Description for Console 1",
+    description:
+      "The balanced mid-tier model featuring the same Snapdragon G3 Gen 2 chip with RX 6700-level graphics, but upgraded with 32GB RAM and a 512GB SSD (expandable). Ideal for gamers wanting stronger performance and storage flexibility.",
   },
   {
     image: img2.src as string,
     title: "Quasar Pro",
-    description: "Description for Console 2",
+    description:
+      "The high-end flagship console with a Snapdragon G3 Gen 3 processor, RX 6700-level graphics, massive 64GB RAM, and a 2TB expandable SSD. Built for hardcore gamers and heavy multitasking.",
   },
   {
     image: img3.src as string,
     title: "Quasar Home",
-    description: "Description for Console 3",
+    description:
+      "An affordable entry-level gaming console powered by the Snapdragon G3 Gen 2 processor with RX 6700-level graphics, 16GB RAM, and 256GB SSD storage. Perfect for casual and mid-range gaming.",
   },
 ];
 
@@ -78,9 +81,9 @@ function Section3() {
                   <span className="font-clash-display text-xl tracking-wide font-bold">
                     {card.title}
                   </span>
-                  {/* <div className="text-gray-300 text-base">
+                  <div className="text-gray-300 text-sm">
                     {card.description}
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>

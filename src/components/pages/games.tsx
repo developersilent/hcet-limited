@@ -54,7 +54,7 @@ export function YourGames() {
 
         {/* Main content area */}
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-2xl ml-16 space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000">
+          <div className="max-w-2xl ml-16 space-y-3 animate-in fade-in slide-in-from-left-8 duration-1000">
             {/* Game title */}
             <h1 className="text-8xl font-clash-display font-bold text-white leading-[85px] tracking-tight">
               {current?.title}

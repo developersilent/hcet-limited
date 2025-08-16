@@ -5,6 +5,7 @@ import img2 from "@/../public/bg-1.svg";
 import console from "@/../public/img5.jpeg";
 import ctrll from "@/../public/img1.jpeg";
 import Image from "next/image";
+import Link from "next/link";
 export function LandingPage() {
   return (
     <div className="min-h-screen bg-black text-white p-3 grid">
@@ -14,20 +15,17 @@ export function LandingPage() {
         <div className="w-full">
           <div className="flex gap-2 h-fit">
             <div className="w-[40%] flex flex-col items-center justify-center">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-clash-display px-3">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-4 font-clash-display px-10">
                 The Future of Gaming
                 <br />
                 Starts Here.
               </h2>
-              <div className="flex gap-2 self-start px-[10%]">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-full text-sm">
-                  Pre-Order Now
-                </Button>
+              <div className="flex gap-2 self-start px-[9%]">
                 <Button
-                  variant="outline"
-                  className="border-gray-600 text-white hover:bg-gray-800 px-6 py-2 rounded-full text-sm bg-transparent"
+                  className="bg-purple-600 hover:bg-purple-700 text-white w-[200px] rounded-none py-2 text-sm"
+                  asChild
                 >
-                  Learn More
+                  <Link href={"/explore"}>Explore</Link>
                 </Button>
               </div>
             </div>

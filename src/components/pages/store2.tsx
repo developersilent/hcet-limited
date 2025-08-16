@@ -54,7 +54,7 @@ export function Store2() {
 
         {/* Main content area */}
         <div className="absolute inset-0 flex items-center">
-          <div className="max-w-2xl ml-16 space-y-6 animate-in fade-in slide-in-from-left-8 duration-1000">
+          <div className="max-w-2xl ml-16 space-y-2 mt-5 animate-in fade-in slide-in-from-left-8 duration-1000">
             {/* Game category badge */}
             {/* <div className="flex items-center space-x-3">
               <Badge
