@@ -12,14 +12,14 @@ export function YourGames() {
         className="absolute inset-0 animate-in fade-in duration-500"
       >
         <video
-          key={current?.src}
+          key={current?.bgImg}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           loop
           muted
           playsInline
           preload="metadata"
-          poster={current?.src?.replace(/\.(mp4|webm)$/, ".jpg")}
+          poster={current?.bgImg?.replace(/\.(mp4|webm)$/, ".jpg")}
           onLoadedData={(e) => {
             const video = e.currentTarget;
             video.currentTime = 7;
@@ -33,9 +33,9 @@ export function YourGames() {
           }}
         >
           {current?.src?.endsWith(".webm") ? (
-            <source src={current.src} type="video/webm" />
+            <source src={current.bgImg} type="video/webm" />
           ) : (
-            <source src={current?.src} type="video/mp4" />
+            <source src={current?.bgImg} type="video/mp4" />
           )}
           Your browser does not support the video tag.
         </video>

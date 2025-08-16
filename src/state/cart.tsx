@@ -1,15 +1,11 @@
 import { create } from "zustand";
-
-export interface CurrentGame {
-  title: string;
-  src: string;
-  description?: string;
-  price?: number;
-}
+import { StoreCurrentGame } from "./store";
 
 interface GameActions {
-  current: CurrentGame[];
-  AddToCart: (game: CurrentGame) => void;
+  current: StoreCurrentGame[];
+  AddToCart: (game: StoreCurrentGame) => void;
+  RemoveFromCart: (game: StoreCurrentGame) => void;
+  ClearCart: () => void;
 }
 
 export const cartInfo = create<GameActions>()((set) => ({
@@ -20,4 +16,13 @@ export const cartInfo = create<GameActions>()((set) => ({
       if (exists) return state;
       return { current: [...state.current, game] };
     }),
+  RemoveFromCart: (game) =>
+    set((state) => {
+      const exists = state.current.some((item) => item.title === game.title);
+      if (!exists) return state;
+      return {
+        current: state.current.filter((item) => item.title !== game.title),
+      };
+    }),
+  ClearCart: () => set({ current: [] }),
 }));

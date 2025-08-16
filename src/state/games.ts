@@ -11,6 +11,7 @@ interface CurrentGame {
   platforms?: string[];
   currentPrice?: number;
   rating?: number;
+  bgImg?: string;
 }
 
 interface GameActions {
@@ -29,6 +30,7 @@ export const currentGameInfo = create<GameActions>()((set) => ({
     platforms: GamesData[0]?.platforms as string[],
     currentPrice: GamesData[0]?.currentPrice as number,
     rating: GamesData[0]?.rating as number,
+    bgImg: GamesData[0]?.bgImg as string,
   },
   setCurrentGame: (game) => set(() => ({ current: game })),
 }));

@@ -22,7 +22,7 @@ interface GameActions {
 export const currentStoreGameInfo = create<GameActions>()((set) => ({
   current: {
     title: GamesData[0]?.title as string,
-    src: GamesData[0]?.bgImg as string,
+    src: GamesData[0]?.src as string,
     description: GamesData[0]?.description as string,
     price: GamesData[0]?.price as number,
     releaseYear: GamesData[0]?.releaseYear as string,
@@ -30,6 +30,7 @@ export const currentStoreGameInfo = create<GameActions>()((set) => ({
     platforms: GamesData[0]?.platforms as string[],
     currentPrice: GamesData[0]?.currentPrice as number,
     rating: GamesData[0]?.rating as number,
+    bgImg: GamesData[0]?.bgImg as string,
   },
   setCurrentStoreGame: (game) => set(() => ({ current: game })),
 }));

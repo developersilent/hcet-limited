@@ -131,7 +131,8 @@ export function CarouselStore({ slides }: CarouselProps) {
     const previousIndex = previous < 0 ? slides.length - 1 : previous;
     setCurrent(previousIndex);
     setCurrentStoreGame({
-      src: slides[previousIndex]?.bgImg as string,
+      src: slides[previousIndex]?.src as string,
+      bgImg: slides[previousIndex]?.bgImg as string,
       title: slides[previousIndex]?.title as string,
       description: slides[previousIndex]?.description,
       price: slides[previousIndex]?.price as number,
@@ -148,7 +149,8 @@ export function CarouselStore({ slides }: CarouselProps) {
     const nextIndex = next === slides.length ? 0 : next;
     setCurrent(nextIndex);
     setCurrentStoreGame({
-      src: slides[nextIndex]?.bgImg as string,
+      src: slides[nextIndex]?.src as string,
+      bgImg: slides[nextIndex]?.bgImg as string,
       title: slides[nextIndex]?.title as string,
       description: slides[nextIndex]?.description,
       price: slides[nextIndex]?.price as number,
@@ -164,7 +166,8 @@ export function CarouselStore({ slides }: CarouselProps) {
     if (current !== index) {
       setCurrent(index);
       setCurrentStoreGame({
-        src: slides[index]?.bgImg as string,
+        src: slides[index]?.src as string,
+        bgImg: slides[index]?.bgImg as string,
         title: slides[index]?.title as string,
         description: slides[index]?.description as string,
         price: slides[index]?.price as number,

@@ -1,6 +1,6 @@
 "use client";
 import { NavUser } from "@/components/avatar/fallback";
-// import CartListPopup from "@/components/cartlist-popup";
+import CartListPopup from "@/components/cartlist-popup";
 import { YourGames } from "@/components/pages/games";
 import { Store2 } from "@/components/pages/store2";
 import ShimmerText from "@/components/shimmer-text";
@@ -8,7 +8,6 @@ import { ErrorToast, SuccessToast } from "@/components/toast";
 import { Button } from "@/components/ui/button";
 import { useSession } from "@/lib/use-session";
 import { useSignOutMutation } from "@/query-calls/auth-query-calls";
-// import { ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -73,14 +72,7 @@ export default function Page() {
             }}
             handleLogOut={handleLogOut}
           />
-          {/* <div className="relative">
-            <ShoppingCart className="w-5 h-5 text-purple-100" />
-            {items.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-semibold rounded-full px-1">
-                {items.length}
-              </span>
-            )}
-          </div> */}
+          <CartListPopup />
         </div>
       </header>
       {activeTab === "games" && (

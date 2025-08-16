@@ -1,10 +1,25 @@
+"use client";
+import { useState } from "react";
 import { GamesData } from "@/lib/games-data";
 import { Button } from "../ui/button";
 import { currentStoreGameInfo } from "@/state/store";
 import { CarouselStore } from "../carousel-store";
+import { cartInfo } from "@/state/cart";
+import CheckoutModal from "../checkout-modal";
 
 export function Store2() {
   const { current } = currentStoreGameInfo();
+  const { AddToCart, current: cartItems } = cartInfo();
+  const [showCheckout, setShowCheckout] = useState(false);
+  const isInCart = cartItems.some((item) => item.title === current?.title);
+
+  const handleBuyNow = () => {
+    if (current) {
+      AddToCart(current);
+      setShowCheckout(true);
+    }
+  };
+
   return (
     <div className="w-full h-svh overflow-clip flex items-center justify-center relative">
       <div
@@ -12,7 +27,7 @@ export function Store2() {
         className="absolute inset-0 animate-in fade-in duration-1000"
       >
         <video
-          key={current?.src}
+          key={current?.bgImg}
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           loop
@@ -33,9 +48,9 @@ export function Store2() {
           }}
         >
           {current?.src?.endsWith(".webm") ? (
-            <source src={current.src} type="video/webm" />
+            <source src={current.bgImg} type="video/webm" />
           ) : (
-            <source src={current?.src} type="video/mp4" />
+            <source src={current?.bgImg} type="video/mp4" />
           )}
           Your browser does not support the video tag.
         </video>
@@ -109,16 +124,19 @@ export function Store2() {
             <div className="flex items-center space-x-4 pt-6">
               <Button
                 size="lg"
+                onClick={handleBuyNow}
                 className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-none font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-purple-500/25"
               >
                 Buy Now
               </Button>
               <Button
+                disabled={isInCart}
+                onClick={() => AddToCart(current)}
                 size="lg"
                 variant="outline"
                 className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-none font-semibold text-lg backdrop-blur-sm"
               >
-                Add to Cart
+                {isInCart ? "In Cart" : "Add to Cart"}
               </Button>
             </div>
 
@@ -149,6 +167,8 @@ export function Store2() {
           <CarouselStore slides={GamesData} />
         </div>
       </div>
+
+      <CheckoutModal isOpen={showCheckout} onOpenChange={setShowCheckout} />
     </div>
   );
 }
